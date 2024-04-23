@@ -3,7 +3,7 @@ class FinanceCalculator:
         pass
     
     def compound_interest(self, principal, rate, time):
-        """
+        '''
         Calculate compound interest.
         
         Args:
@@ -13,11 +13,11 @@ class FinanceCalculator:
         
         Returns:
             float: The amount of money after compound interest.
-        """
+        '''
         return principal * (1 + rate)**time
     
     def simple_interest(self, principal, rate, time):
-        """
+        '''
         Calculate simple interest.
         
         Args:
@@ -27,11 +27,11 @@ class FinanceCalculator:
         
         Returns:
             float: The amount of money after simple interest.
-        """
+        '''
         return principal * (1 + rate * time)
     
     def present_value(self, future_value, rate, time):
-        """
+        '''
         Calculate present value.
         
         Args:
@@ -41,11 +41,11 @@ class FinanceCalculator:
         
         Returns:
             float: The present value of money.
-        """
+        '''
         return future_value / (1 + rate)**time
     
     def annuity_payment(self, present_value, rate, time):
-        """
+        '''
         Calculate annuity payment.
         
         Args:
@@ -55,21 +55,27 @@ class FinanceCalculator:
         
         Returns:
             float: The periodic payment required.
-        """
+        '''
         return present_value * (rate / (1 - (1 + rate)**-time))
     
 
 # Example usage:
-calculator = FinanceCalculator()
+def main():
+    calculator = FinanceCalculator()
 
-# Calculate compound interest
-print("Compound Interest:", calculator.compound_interest(1000, 0.05, 5))
+    # Calculate compound interest
+    print("Compound Interest:", calculator.compound_interest(1000, 0.05, 5))
 
-# Calculate simple interest
-print("Simple Interest:", calculator.simple_interest(1000, 0.05, 5))
+    # Calculate simple interest
+    print("Simple Interest:", calculator.simple_interest(1000, 0.05, 5))
 
-# Calculate present value
-print("Present Value:", calculator.present_value(1000, 0.05, 5))
+    # Calculate present value
+    print("Present Value:", calculator.present_value(1000, 0.05, 5))
 
-# Calculate annuity payment
-print("Annuity Payment:", calculator.annuity_payment(1000, 0.05, 5))
+    # Calculate annuity payment
+    print("Annuity Payment:", calculator.annuity_payment(1000, 0.05, 5))
+
+
+
+if __name__ == "__main__":
+    main()
