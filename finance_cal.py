@@ -1,4 +1,8 @@
 class FinanceCalculator:
+    '''
+    This finance calculator library can be used to perform common financial calculations, such as:
+    Compound interest, Simple interest, Present value, Annuity payment.
+    '''
     def __init__(self):
         pass
     
