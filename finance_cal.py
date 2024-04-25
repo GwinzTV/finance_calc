@@ -79,6 +79,16 @@ def main():
     # Calculate annuity payment
     print("Annuity Payment:", calculator.annuity_payment(1000, 0.05, 5))
 
+    # User input Block #
+    query_text = '''\nSelect which service you wish to use:
+    [1] -- Calculate Compound interest
+    [2] -- Calculate Simple interest
+    [3] -- Calculate Present value
+    [4] -- Calculate Annuity payment'''
+    print('Welcome to the Finance Calculator!')
+    name = input('Please enter your name: ')
+    choice = input(query_text + '\n\n' + 'Enter your choice: ')
+
 
 
 if __name__ == "__main__":
