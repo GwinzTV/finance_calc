@@ -61,33 +61,46 @@ class FinanceCalculator:
             float: The periodic payment required.
         '''
         return present_value * (rate / (1 - (1 + rate)**-time))
-    
+
+        
+
 
 # Example usage:
 def main():
     calculator = FinanceCalculator()
-
-    # Calculate compound interest
-    print("Compound Interest:", calculator.compound_interest(1000, 0.05, 5))
-
-    # Calculate simple interest
-    print("Simple Interest:", calculator.simple_interest(1000, 0.05, 5))
-
-    # Calculate present value
-    print("Present Value:", calculator.present_value(1000, 0.05, 5))
-
-    # Calculate annuity payment
-    print("Annuity Payment:", calculator.annuity_payment(1000, 0.05, 5))
 
     # User input Block #
     query_text = '''\nSelect which service you wish to use:
     [1] -- Calculate Compound interest
     [2] -- Calculate Simple interest
     [3] -- Calculate Present value
-    [4] -- Calculate Annuity payment'''
+    [4] -- Calculate Annuity payment
+    [5] -- Exit'''
     print('Welcome to the Finance Calculator!')
     name = input('Please enter your name: ')
-    choice = input(query_text + '\n\n' + 'Enter your choice: ')
+    while True:
+        choice = input(query_text + '\n\n' + 'Enter your choice: ')
+        # exit program
+        if choice == '5':
+            print(f'Thank you {name} for using this financial service!\n\nYou have successfully exited the program.')
+            break
+        # error handling
+        try:
+            initial = float(input('Enter your initial amount: '))
+            rate = float(input('Enter the annual interest rate as a decimal: '))
+            time = float(input('Enter the years it will be invested for: '))
+        except ValueError:
+            print('Please enter numbers or decimal numbers only!')
+        # if no exceptions, run the else block
+        else:
+            if choice == '1':
+                print(f"\n{name} your Compound Interest:", calculator.compound_interest(initial, rate, time))
+            elif choice == '2':
+                print(f"\n{name} your Simple Interest:", calculator.simple_interest(initial, rate, time))
+            elif choice == '3':
+                print(f"\n{name} your Present Value:", calculator.present_value(initial, rate, time))
+            elif choice == '4':
+                print(f"\n{name} your Annuity Payment:", calculator.annuity_payment(initial, rate, time))
 
 
 
